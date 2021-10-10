@@ -5,11 +5,10 @@ const createIssue = (z, bundle) => {
     method: 'POST',
     url: `https://api.github.com/repos/${bundle.inputData.repo}/issues`,
     body: JSON.stringify({
-      title: bundle.inputData.title
-    })
+      title: bundle.inputData.title,
+    }),
   });
-  return responsePromise
-    .then(response => JSON.parse(response.content));
+  return responsePromise.then((response) => JSON.parse(response.content));
 };
 
 module.exports = {
@@ -18,16 +17,21 @@ module.exports = {
 
   display: {
     label: 'Create Issue',
-    description: 'Creates a issue.'
+    description: 'Creates a issue.',
   },
 
   operation: {
     inputFields: [
-      {key: 'repo', label:'Repo', required: true, dynamic: 'repo.full_name.full_name'},
-      {key: 'title', label:'Title', required: true},
-      {key: 'body', label:'Body', required: false}
+      {
+        key: 'repo',
+        label: 'Repo',
+        required: true,
+        dynamic: 'repo.full_name.full_name',
+      },
+      { key: 'title', label: 'Title', required: true },
+      { key: 'body', label: 'Body', required: false },
     ],
     perform: createIssue,
-    sample: sample
-  }
+    sample: sample,
+  },
 };

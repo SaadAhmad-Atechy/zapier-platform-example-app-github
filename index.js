@@ -18,16 +18,12 @@ const App = {
   authentication: authentication,
 
   // beforeRequest & afterResponse are optional hooks into the provided HTTP client
-  beforeRequest: [
-  ],
+  beforeRequest: [],
 
-  afterResponse: [
-    handleHTTPError
-  ],
+  afterResponse: [handleHTTPError],
 
   // If you want to define optional resources to simplify creation of triggers, searches, creates - do that here!
-  resources: {
-  },
+  resources: {},
 
   // If you want your trigger to show up, you better include it here!
   triggers: {
@@ -36,13 +32,12 @@ const App = {
   },
 
   // If you want your searches to show up, you better include it here!
-  searches: {
-  },
+  searches: {},
 
   // If you want your creates to show up, you better include it here!
   creates: {
     [issueCreate.key]: issueCreate,
-  }
+  },
 };
 
 // Finally, export the app.
